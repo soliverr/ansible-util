@@ -77,7 +77,7 @@
 - name: Register SELinux state
   tags: util
   become: true
-  always_run: true
+  check_mode: no
   ignore_errors: true
   failed_when: false
   changed_when: false
@@ -107,7 +107,7 @@
   when:
     - ansible_os_family == 'RedHat'
     - ansible_local.util.epel.enable is undefined or ansible_local.util.epel.enable != true
-  always_run: true
+  check_mode: no
   register: util_registered_installed_repos
   command: yum repolist
 
