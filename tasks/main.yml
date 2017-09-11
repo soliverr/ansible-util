@@ -11,7 +11,7 @@
 - name: Disable requiretty in SUDO
   tags: util
   become: true
-  when: "{{ util_fact_ssh_pipelining }}"
+  when: util_fact_ssh_pipelining
   vars:
     ansible_ssh_pipelining: false
   lineinfile:
